@@ -34,16 +34,16 @@ All patterns use `genai.Client()` which auto-reads `GEMINI_API_KEY`. Structured 
 
 | Notebook | Pattern | Core Mechanic |
 |---|---|---|
-| `Agentic_AI_Sequential_Pattern.ipynb` | Sequential | Fixed linear pipeline: A → B → C |
-| `Agentic_AI_Loop_Pattern.ipynb` | Loop | Writer + Critic loop until approved or `max_iterations` |
-| `Agentic_AI_Coordinator_Pattern.ipynb` | Coordinator | LLM routes to specialized subagent, then synthesizes result |
-| `Agentic_AI_HITL_Pattern.ipynb` | Human-in-the-Loop | Agent produces draft → console `input()` approval gate → refine or release |
-| `Agentic_AI_Parallel_Pattern.ipynb` | Parallel | `concurrent.futures.ThreadPoolExecutor` fans out to agents concurrently, then synthesizes |
-| `Agentic_AI_ReAct_Pattern.ipynb` | ReAct | Reason → Act → Observe loop with tool dispatch and persistent `memory_context` string |
-| `Agentic_AI_Hierarchical_Pattern.ipynb` | Hierarchical | Root coordinator decomposes task → mid-level coordinators → worker agents |
-| `Agentic_AI_Iterative_Refinement_Pattern.ipynb` | Iterative Refinement | Generator + Evaluator + Prompt Enhancer loop (prompt itself is improved each cycle) |
-| `Agentic_AI_Swarm_Pattern.ipynb` | Swarm | Dispatcher routes to first node; agents autonomously hand off via `next_agent` field in shared history |
-| `Agentic_AO_Review_Critic_Pattern.ipynb` | Review & Critic | Generator + security-critic loop; critic returns structured `quality_score` and `meets_requirements` |
+| `Agentic_AI_ReAct_Pattern.ipynb` | ReAct | **Single-agent** — Reason → Act → Observe loop with tool dispatch and persistent `memory_context` string |
+| `Agentic_AI_HITL_Pattern.ipynb` | Human-in-the-Loop | **Single-agent** — Agent produces draft → console `input()` approval gate → refine or release |
+| `Agentic_AI_Sequential_Pattern.ipynb` | Sequential | **Multi-agent** — Fixed linear pipeline: A → B → C |
+| `Agentic_AI_Loop_Pattern.ipynb` | Loop | **Multi-agent** — Writer + Critic loop until approved or `max_iterations` |
+| `Agentic_AI_Iterative_Refinement_Pattern.ipynb` | Iterative Refinement | **Multi-agent** — Generator + Evaluator + Prompt Enhancer loop (prompt itself is improved each cycle) |
+| `Agentic_AI_Parallel_Pattern.ipynb` | Parallel | **Multi-agent** — `concurrent.futures.ThreadPoolExecutor` fans out to agents concurrently, then synthesizes |
+| `Agentic_AI_Coordinator_Pattern.ipynb` | Coordinator | **Multi-agent** — LLM routes to specialized subagent, then synthesizes result |
+| `Agentic_AI_Hierarchical_Pattern.ipynb` | Hierarchical | **Multi-agent** — Root coordinator decomposes task → mid-level coordinators → worker agents |
+| `Agentic_AI_Swarm_Pattern.ipynb` | Swarm | **Multi-agent** — Dispatcher routes to first node; agents autonomously hand off via `next_agent` field in shared history |
+| `Agentic_AO_Review_Critic_Pattern.ipynb` | Review & Critic | **Multi-agent** — Generator + security-critic loop; critic returns structured `quality_score` and `meets_requirements` |
 
 ### Key Design Conventions
 
